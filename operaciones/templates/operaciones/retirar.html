@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Retirar</title>
+</head>
+<body>
+    <h1>Formulario de Retiro</h1>
+    <form method="POST">
+        {% csrf_token %}
+        <label for="cantidad">Cantidad a retirar: </label>
+        <input type="number" step="0.01" name="cantidad" required>
+        <button type="submit">Retirar</button>
+    </form>
+
+    {% if mensaje %}
+        <p>{{ mensaje }}</p>
+    {% endif %}
+    
+    <a href="{% url 'login' %}"><button>Volver a Inicio</button></a>
+</body>
+</html>
